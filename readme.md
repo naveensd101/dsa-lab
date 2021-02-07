@@ -4,6 +4,15 @@
 
 ---
 
+1. Binary Trees
+	1. Paranthesis Representation of Binary tree
+	2. Find cousins
+	3. Number of sum BSTs in a big Binary tree
+	4. BST (mainly level btw my level func is bad u can do better)
+	5. Ksmallest in a BST
+	6. Make balanced BST from given assend order list
+
+
 ## tests
 
 ---
