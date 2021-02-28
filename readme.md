@@ -11,6 +11,14 @@
 	4. BST (mainly level btw my level func is bad u can do better)
 	5. Ksmallest in a BST
 	6. Make balanced BST from given assend order list
+2. Hash Table + BST
+	1. Open Hashing with Quadratic Probing and Double Hashing
+	2. Hashing with Chaining (strings)
+	3. Special anagram (strings)
+	4. AVL Tree (skip)
+	5. KLargest and KSmalles in BST
+	6. BST, Largest element in the path between two elements
+	7. Making Balanced BST with a sorted list of keys
 
 
 ## tests
