@@ -84,13 +84,13 @@ void postorder(struct tree *T) {
     printf("\n");
 }
 
-int treeMax(struct tNode *r) {
+struct tNode *treeMax(struct tNode *r) {
 	struct tNode *ptr = r;
 	while(ptr->r != NULL) {
 		ptr = ptr->r;
 	}
-	if(ptr == NULL) return INT_MIN;
-	return ptr->key;
+	if(ptr == NULL) return NULL;
+	return ptr;
 }
 int maxPath(struct tNode *root, int a, int b) {
 	//first finding the common ancestor
@@ -105,7 +105,22 @@ int maxPath(struct tNode *root, int a, int b) {
 		if( a < ptr->key && b < ptr->key) ptr = ptr->l;
 		if( a > ptr->key && b > ptr->key) ptr = ptr->r;
 	}
-	return treeMax(ptr);
+	int maxelem = INT_MIN;
+	struct tNode *commonMOMorDAD = ptr;
+	// a
+	while(ptr != NULL && ptr->key != a) {
+		if(maxelem < ptr->key && ptr->key != a && ptr->key != b) maxelem = ptr->key;
+		if(a < ptr->key) ptr = ptr->l;
+		else ptr = ptr->r;
+	}
+	// b
+	ptr = commonMOMorDAD;
+	while(ptr != NULL && ptr->key != b) {
+		if(maxelem < ptr->key && ptr->key != b && ptr->key != a) maxelem = ptr->key;
+		if(b < ptr->key) ptr = ptr->l;
+		else ptr = ptr->r;
+	}
+	return maxelem;
 }
 int main() {
 	struct tree *T = (struct tree *)malloc(sizeof(struct tree));
