@@ -140,8 +140,8 @@ int main3() {
 struct tNode *make(int arr[], int l, int r) {
     if(l > r) return NULL;
     struct tNode *root = NULL;
-    //int mid = l + (r-l)/2;
-	int mid = (l+r+1)/2;
+    int mid = l + (r-l)/2;
+	//int mid = (l+r+1)/2;
     root = createTNode(arr[mid]);
     struct tNode *left = make(arr, l, mid-1);
     struct tNode *right = make(arr, mid+1, r);
