@@ -32,7 +32,7 @@ struct table {
 int *HashTable(int m) {
 	/* Retrun pointer to a array */
 	int *arr = (int *)malloc(m*sizeof(int));	
-	for(int i = 0; i < m; ++i) arr[m] = 0;
+	for(int i = 0; i < m; ++i) arr[i] = 0;
 	return arr;
 }
 void Insert(struct table *T, int k) {
@@ -70,7 +70,7 @@ void Delete(struct table *T, int k) {
 }
 
 int main() {
-	struct table *T = (struct table *)malloc(sizeof(struct table));
+	struct table *T = (struct table *)malloc(sizeof(struct table *));
 	T->m = 0;
 	T->array = NULL;
 	T->flag = NULL;
@@ -97,15 +97,15 @@ int main() {
 	}
 	
 
-	//printf("printing...\n");
-	//printf("m: %d\n", T->m);
-	//printf("arra: "); for(int i = 0; i < T->m; ++i) printf("%d ", T->array[i]);
-	//printf("\n");
-	//printf("flag: "); for(int i = 0; i < T->m; ++i) printf("%d ", T->flag[i]);
-	//printf("\n");
-	//printf("c1: %d\n", T->c1);
-	//printf("c2: %d\n", T->c2);
-	//printf("R: %d\n", T->R);
+	// printf("printing...\n");
+	// printf("m: %d\n", T->m);
+	// printf("arra: "); for(int i = 0; i < T->m; ++i) printf("%d ", T->array[i]);
+	// printf("\n");
+	// printf("flag: "); for(int i = 0; i < T->m; ++i) printf("%d ", T->flag[i]);
+	// printf("\n");
+	// printf("c1: %d\n", T->c1);
+	// printf("c2: %d\n", T->c2);
+	// printf("R: %d\n", T->R);
 	
 	char c = '#';
 	int canwe = 1;
