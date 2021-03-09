@@ -34,3 +34,9 @@
 	1. Position of an elem in an unsorted SLL
 	2. Return the (n-k+1)th node in the SLL
 	3. Insert elem to the middle fo a DLL
+
+3. Offical test 1
+	1. BST duplicate count and level print
+	2. two keyed 3 array search tree (couldnt complete implementations, my code is not complete)
+	3. Didnt reach that question while attending test
+
