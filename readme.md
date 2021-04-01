@@ -20,6 +20,9 @@
 	6. BST, Largest element in the path between two elements
 	7. Making Balanced BST with a sorted list of keys
 
+3. Balancing BSTs
+	1. AVL Tree (deletion is not yet done)
+
 
 ## tests
 
