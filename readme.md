@@ -22,6 +22,7 @@
 
 3. Balancing BSTs
 	1. AVL Tree (deletion is not yet done)
+	2. AVL Tree sort with duplicate elements
 
 
 ## tests
