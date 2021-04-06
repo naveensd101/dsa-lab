@@ -11,7 +11,23 @@ struct avlNode {
 struct avlTree {
 	struct avlNode *root;
 };
-//max and min-------------------------------------------------------------------------------------------------------------------------------------------
+
+//Min Nod and max node----------------------------------------------------------------------------------------------------------------------------------
+struct avlNode *minNode(struct avlNode *T) {
+	if(T == NULL) return NULL;
+	while(T->left != NULL) T = T->left;
+	return T;
+}
+struct avlNode *maxNode(struct avlNode *T) {
+	if(T == NULL) return NULL;
+	while(T->right != NULL) T = T->right;
+	return T;
+}
+int abs(int a) {
+	return (a < 0 ? -1*a : a);
+}
+
+//max and min and abs-----------------------------------------------------------------------------------------------------------------------------------
 int max(int a, int b) {
 	return ( a > b ? a : b);
 }
@@ -70,6 +86,27 @@ struct avlNode* search(struct avlTree *A, int k) {
 	return searchHelper(A->root, k);
 }
 
+//Balance factor----------------------------------------------------------------------------------------------------------------------------------------
+int bfHelper(struct avlNode *T) {
+	if(T == NULL) return 0;
+	return (height(T->left) - height(T->right));
+}
+int getBalance(struct avlTree *A, int k) {
+	struct avlNode *ptr = search(A, k);
+	return bfHelper(ptr);
+}
+
+//isAvl-------------------------------------------------------------------------------------------------------------------------------------------------
+int isAvlHelper(struct avlNode * T) {
+	if(T == NULL) return 1;
+	if(abs(bfHelper(T)) > 1) return 0;
+	if(isAvlHelper(T->left) && isAvlHelper(T->right)) return 1;
+	return 0;
+}
+int isAvl(struct avlTree *A) {
+	return isAvlHelper(A->root);
+}
+
 //Insert Functions--------------------------------------------------------------------------------------------------------------------------------------
 struct avlNode *insertHelper(struct avlNode *T, int x) {
 	if(T == NULL) {
@@ -103,6 +140,58 @@ struct avlNode *insertHelper(struct avlNode *T, int x) {
 }
 void insert(struct avlTree *A, int k) {
 	A->root = insertHelper(A->root, k);
+}
+
+//Delete------------------------------------------------------------------------------------------------------------------------------------------------
+struct avlNode *deleteHelper(struct avlNode *T, int k) {
+	if(T == NULL) return NULL;
+	else if(k < T->key) T->left = deleteHelper(T->left, k);
+	else if(k > T->key) T->right = deleteHelper(T->right, k);
+	else { //T points the node to be deleted
+		if(T->left == NULL) {
+			struct avlNode *ptr = T->right;
+			free(T);
+			T = ptr;
+		}
+		else if(T->right == NULL) {
+			struct avlNode *ptr = T->left;
+			free(T);
+			T = ptr;
+		}
+		else {
+			struct avlNode *ptr = minNode(T->right);
+			T->key = ptr->key;
+			T->right = deleteHelper(T->right, T->key);
+		}
+	}
+	int bf = bfHelper(T);
+	if(abs(bf) > 1) {
+		if(bf < -1) { //case 3
+			if(bfHelper(T->right) <= 0) { //case 3a & 3b
+				T = leftRotate(T);
+			}
+			else { //case 3c
+				T->right = rightRotate(T->right);
+				T = leftRotate(T);
+			}
+		}
+		else if(bf > 1) { //case 3 mirror
+			if(bfHelper(T->left) >= 0) { //case 3a & 3b mirror
+				T = rightRotate(T);
+			}
+			else { //case 3c mirror
+				T->left = leftRotate(T->left);
+				T = rightRotate(T);
+			}
+		}
+	}
+	return T;
+}
+int deleteNode(struct avlTree *A, int k) {
+	// returns 1 if we can delete k
+	if(search(A, k) == NULL) return 0;
+	A->root = deleteHelper(A->root, k);
+	return 1;
 }
 
 //Print Parenthesis form--------------------------------------------------------------------------------------------------------------------------------
@@ -154,6 +243,24 @@ int main() {
 
 			case 'e': {
 				canwe = 0;
+				break;
+			}
+
+			case 'd': {
+				int k;
+				scanf("%d", &k);
+				if(deleteNode(T, k)) printf("%d\n", k);
+				else printf("FALSE\n");
+				break;
+			}
+
+			case 'b': {
+				int k;
+				scanf("%d", &k);
+				if(search(T, k) == NULL) printf("FALSE\n");
+				else {
+					printf("%d\n", getBalance(T, k));
+				}
 				break;
 			}
 		}
