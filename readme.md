@@ -23,6 +23,8 @@
 3. Balancing BSTs
 	1. AVL Tree (deletion is not yet done)
 	2. AVL Tree sort with duplicate elements
+	3. Red Black Tree insert
+	4. Binomial Heap
 
 
 ## tests
