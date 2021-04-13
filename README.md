@@ -46,3 +46,8 @@
 	2. two keyed 3 array search tree (couldnt complete implementations, my code is not complete)
 	3. Didnt reach that question while attending test
 
+4. Offical test 2
+	1. checking if binary tree is Avl tree
+	2. two table hashing (could not complete)
+	3. IDK
+
