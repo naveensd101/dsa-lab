@@ -26,6 +26,15 @@
 	3. Red Black Tree insert
 	4. Binomial Heap
 
+4. Graphs + Fibonacci Heap + Disjoint set
+	1. graph adjacency list representation
+	2. minimum spanning trees (could'nt do) :(
+	3. Dijkstra's algorithm (skiped)
+	4. BFS and DFS
+	5. negative cycle (skiped)
+	6. Fibonacci Heap (not complete)
+	7. Disjoint set (count number of find set has a bug)
+
 
 ## tests
 
