@@ -139,34 +139,34 @@ int main() {
 			}
 			//B
 			if(B[x] == NULL || B[y] == NULL) printf("-1 ");
-			else if(findVB(B[x], &temp) == findVB(B[y], &temp)) {
-				printf("%d ", findVB(B[x], &temp)->key);
+			else if(findVA(B[x], &temp) == findVA(B[y], &temp)) {
+				printf("%d ", findVA(B[x], &temp)->key);
 			}
 			else {
 				unionVB(B[x], B[y], &Bcount);
-				printf("%d ", findVB(B[x], &temp)->key);
+				printf("%d ", findVA(B[x], &temp)->key);
 			}
 			//C
 			if(C[x] == NULL || C[y] == NULL) printf("-1 ");
-			else if(findVC(C[x], &temp) == findVC(C[y], &temp)) {
-				printf("%d ", findVC(C[x], &temp)->key);
+			else if(findVA(C[x], &temp) == findVA(C[y], &temp)) {
+				printf("%d ", findVA(C[x], &temp)->key);
 			}
 			else {
 				unionVC(C[x], C[y], &Ccount);
-				printf("%d ", findVC(C[x], &temp)->key);
+				printf("%d ", findVA(C[x], &temp)->key);
 			}
 			//D
 			if(D[x] == NULL || D[y] == NULL) printf("-1 ");
-			else if(findVD(D[x], &temp) == findVD(D[y], &temp)) {
-				printf("%d ", findVD(D[x], &temp)->key);
+			else if(findVA(D[x], &temp) == findVA(D[y], &temp)) {
+				printf("%d ", findVA(D[x], &temp)->key);
 			}
 			else {
 				unionVD(D[x], D[y], &Dcount);
-				printf("%d\n", findVD(D[x], &temp)->key);
+				printf("%d\n", findVA(D[x], &temp)->key);
 			}
 		}
 		else if(c == 's') {
-			printf("%d %d %d %d\n", Acount, Bcount, Ccount+3, Dcount+1);
+			printf("%d %d %d %d\n", Acount, Bcount, Ccount, Dcount);
 			break;
 		}
 	}
