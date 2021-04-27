@@ -1,0 +1,52 @@
+SEARCH(G, x, k)
+	flag = BFS_search(G, x, k)
+	if(flag = 1)
+		return 1
+	return 0
+
+BFS_search(G, x, k)
+	for each vertex u in G - {'a'}
+		u.color = white
+		u.d = infinity
+		u.pi = nil
+	s = 'a' //node with value 'a'
+	s.color = GRAY
+	s.d = 0
+	s.pi = NIL
+	q = {}
+	enqueue(Q, s)
+	while(q is not empty)
+		u = dequeu(q)
+		if u = x
+			return 1
+		if u.d > 2
+			if DFS_search(u, G, x, k) = 1
+				return 1
+		else
+			for each v in G.adj[u]
+				if v.color == WHITE
+					v.color = GRAY
+					v.d = u.d + 1
+					v.pi = u
+					print(v, '->', u)
+					if u = x
+						return 1
+					enqueue(Q, v)
+		u.color = BLACK
+
+	iteratively find the next nonvisited node
+	if BFS_search(G, x, k, thatNode) = 1
+		return 1
+	return 0
+
+DFS_search(u, G, x, k)
+	u.color = GRAY
+	for each v in G.Adj[u]
+		if v.color = WHITE
+			v.pi = u
+			print(v, '->', u)
+			if u = x
+				return 1
+			DFS_search(v, G, x, k)
+	u.color = BLACK
+	return 0

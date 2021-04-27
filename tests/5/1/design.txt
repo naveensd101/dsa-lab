@@ -1,0 +1,23 @@
+//store modified ascii values of charechters in adjMat
+bfs(G, s)
+	for each vertex u in G.V - {s}
+		u.color = WHITE
+		u.d = infinity
+		u.pi = nil
+	s.color = Gray
+	s.d = 0
+	s.pi = NIL
+	Q = {}
+	Enqueue(Q, s);
+	while(Q is not empty)
+		u = dequeue(Q)
+		print(u)
+		for each v in G.Adj[u]
+			iterate and find the min vertex in adjlist that is not visited
+			store it in mini
+			//in matrix representation sequential travesal is enough
+			mini.color = Gray
+			mini.d = u.d + 1
+			mini.pi = u
+			enqueue(Q, mini)
+		u.color = black
