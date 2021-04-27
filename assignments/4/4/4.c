@@ -93,7 +93,7 @@ int main() {
 	for(int i = 0; i < m; ++i) {
 		scanf("%d %d", &u, &v);
 		adj[u][v] = 1;
-		adj[v][u] = 1;
+		//adj[v][u] = 1;
 	}
 	int sourse;
 	scanf("%d", &sourse);

@@ -196,7 +196,7 @@ void printRootList(struct fibHeap *H) {
 	return;
 }
 
-void cut(struct fibHeap *H, struct fibNode *x, fibNode *y) {
+void cut(struct fibHeap *H, struct fibNode *x, struct fibNode *y) {
 	if(H == NULL || H->min == NULL || x == NULL || y == NULL) return;
 	if(x == x->right) {
 		y->child = NULL;
