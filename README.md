@@ -28,7 +28,7 @@
 
 4. Graphs + Fibonacci Heap + Disjoint set
 	1. graph adjacency list representation
-	2. minimum spanning trees (could'nt do) :(
+	2. minimum spanning trees (did Kruskal algo)
 	3. Dijkstra's algorithm (skiped)
 	4. BFS and DFS
 	5. negative cycle (skiped)
